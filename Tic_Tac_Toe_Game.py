@@ -8,11 +8,13 @@ def main():
         board[i] = board[i].replace("   "," 0 ") #Initializing the board to be played on Tic-Tac-Toe
     for row1 in board:
         print(row1) #Prints the first blank board
-    while True:
-        sol, board, is_won_midgame = game.main(sol,board) #Starts the game
+    for turn in range(5):
+        sol, board, is_won_midgame = game.main(sol, board, turn) #Starts the game
         if is_won_midgame: #Checks if it was won mid-game
             return
-        is_won = check.main(sol) #checks if it was won at the end
+        is_won = check.main(sol) #Checks if it was won at the end
         if is_won:
             return
+    print("Oh no! It's a Draw!")
+
 main()
