@@ -5,7 +5,7 @@ def main(game_to_play_on, board_to_play_on):
     board_row = [1, 3, 5, 7] #These are indexes of where the cross, x and o are going to be
     while True:
         try:
-            coordinates_player1 = input("PLAYER 1: INPUT THE COORDINATES IN THE FORMAT x,y: ").strip().split(",")
+            coordinates_player1 = input('PLAYER 1: INPUT THE COORDINATES IN THE FORMAT (integer from 1 to 3) "row,column": ').strip().split(",")
             coordinates_player1 = [int(i) for i in coordinates_player1]
             if game_to_play_on[coordinates_player1[0] - 1][coordinates_player1[1] - 1] == 1 or game_to_play_on[coordinates_player1[0] - 1][coordinates_player1[1] - 1] == 2:
             #Converts coordinates by player into the coordinates of the game, then checks if it was already written once
@@ -26,7 +26,7 @@ def main(game_to_play_on, board_to_play_on):
         return game_to_play_on, board_to_play_on, is_won
     while True:
         try:
-            coordinates_player2 = input("PLAYER 2: INPUT THE COORDINATES IN THE FORMAT x,y: ").strip().split(",")
+            coordinates_player2 = input('PLAYER 2: INPUT THE COORDINATES IN THE FORMAT (integer from 1 to 3) "row,column": ').strip().split(",")
             coordinates_player2 = [int(i) for i in coordinates_player2]
             if game_to_play_on[coordinates_player2[0] - 1][coordinates_player2[1] - 1] == 1 or game_to_play_on[coordinates_player2[0] - 1][coordinates_player2[1] - 1] == 2:
                 print("ERROR! THERE IS ALREADY A CROSS OR A CIRCLE THERE! TRY AGAIN!")
