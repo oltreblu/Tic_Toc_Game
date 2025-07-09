@@ -34,7 +34,7 @@ def user_input(player, game):
             coordinates_player = [int(i) for i in coordinates_player]
             if game[coordinates_player[0] - 1][coordinates_player[1] - 1] == 1 or game[coordinates_player[0] - 1][coordinates_player[1] - 1] == 2:
             #Converts coordinates by player into the coordinates of the game, then checks if it was already written once
-                print("ERROR! THERE IS ALREADY A CROSS OR A CIRCLE THERE! TRY AGAIN!")
+                print("ERROR! THERE IS ALREADY A CROSS/CIRCLE THERE! TRY AGAIN!")
                 continue
             break
         except ValueError:
