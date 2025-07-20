@@ -10,7 +10,7 @@ def board_stock(number_of_squares):
     board.append(horizontal_line * number_of_squares) #This creates the last horizontal lines
     return board
 
-def main(do_not_use_this_function_if_using_import):
+def main():
     while True:
         try:
             n = int(input("Input the size game board (positive integer): "))
@@ -27,4 +27,4 @@ def main(do_not_use_this_function_if_using_import):
         print(line)
 
 if __name__ == "__main__":
-    main(3)
+    main()
