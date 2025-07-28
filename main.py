@@ -37,9 +37,9 @@ def main():
         for player, score in scores.items():
             if score == max_score:
                 if player == 'player1':
-                    print("Congratulations! Player 1 WON!!!")
+                    print("Congratulations! Player 1 WON THE GAME!!!")
                 else:
-                    print("Congratulations! Player 2 WON!!!")
+                    print("Congratulations! Player 2 WON THE GAME!!!")
                 return
 
 main()
