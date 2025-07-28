@@ -1,33 +1,16 @@
 from Board import board_stock as board
 from Check_Game import check
 
-def main(game_to_play_on, board_to_play_on, turn):
-    coordinates_player1 = user_input(1, game_to_play_on)
-    game_to_play_on[coordinates_player1[0] - 1][coordinates_player1[1] - 1] = 1 #Converts coordinates by player into the coordinates of the game
+def main(game_to_play_on, board_to_play_on, player):
+    coordinates_player = user_input(1, game_to_play_on)
+    game_to_play_on[coordinates_player[0] - 1][coordinates_player[1] - 1] = player #Converts coordinates by player into the coordinates of the game
 
     board_to_play_on = next_board(game_to_play_on, board_to_play_on) #Creates the next board
 
     for row in board_to_play_on:
         print(row) #Prints the Board
 
-    is_won = check(game_to_play_on) #Checks if the game was already won
-    if (2 * turn) + 1 == 9:
-        print("Oh no! IT'S A DRAW!")
-        is_won = True
-        return game_to_play_on, board_to_play_on, is_won
-
-    if is_won:
-        return game_to_play_on, board_to_play_on, is_won
-
-    coordinates_player2 = user_input(2, game_to_play_on)
-    game_to_play_on[coordinates_player2[0] - 1][coordinates_player2[1] - 1] = 2
-
-    board_to_play_on = next_board(game_to_play_on, board_to_play_on)
-
-    for row in board_to_play_on:
-        print(row)
-    return game_to_play_on, board_to_play_on, is_won
-
+    return game_to_play_on, board_to_play_on
 def user_input(player, game):
     while True:
         try:
