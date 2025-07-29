@@ -4,9 +4,10 @@ from Board import board_stock as board
 
 def main():
     scores = {'player1': 0, 'player2': 0}
+    game_score = 0
     while True:
         try:
-            max_score = int(input(f"Please Tell me the max score you want to play: "))
+            max_games = int(input(f"Please Tell me the max games you want to play: "))
             break
         except ValueError:
             print("ERROR! NOT VALID INPUT! TRY AGAIN!")
@@ -34,12 +35,13 @@ def main():
         print(f"The score of Player 1 is: {scores['player1']}")
         print(f"The score of Player 2 is: {scores['player2']}")
         print("-" * 50)
-        for player, score in scores.items():
-            if score == max_score:
-                if player == 'player1':
-                    print("Congratulations! Player 1 WON THE GAME!!!")
-                else:
-                    print("Congratulations! Player 2 WON THE GAME!!!")
-                return
+        game_score += 1
+        if game_score == max_games:
+            if scores['player1'] == scores['player2']:
+                print("FINAL - OH NO! IT'S A TIE!")
+            else:
+                player = max(scores)
+                print(f"FINAL - Congratulations! {player} WON THE GAME!!!")
+            return
 
 main()
