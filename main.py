@@ -14,34 +14,40 @@ def main():
 
     while True:
         game_matrix = []
+
         for line in range(3):
             game_matrix.append([0,0,0])
         game_board = board(3)
+
         for row in game_board:
-            print(row)  # Prints the Board
+            print(row)
         is_won = 0
+
         while is_won == 0:
             for player in [1,2]:
                 game_matrix, game_board = game(game_matrix, game_board, player)
                 is_won = check(game_matrix)
-                if is_won == 0:
+
+                if is_won == 0: #No draw/win
                     continue
-                elif is_won == -1:
+                elif is_won == -1: #Draw
                     break
-                else:
+                else: #Win
                     scores['player' + str(is_won)] += 1
                     break
+
         print("-" * 50)
         print(f"The score of Player 1 is: {scores['player1']}")
         print(f"The score of Player 2 is: {scores['player2']}")
         print("-" * 50)
         game_score += 1
+
         if game_score == max_games:
             if scores['player1'] == scores['player2']:
                 print("FINAL - OH NO! IT'S A TIE!")
             else:
-                player = max(scores)
-                print(f"FINAL - Congratulations! {player} WON THE GAME!!!")
+                player = max(scores['player1'], scores['player2'])
+                print(f"FINAL - Congratulations! Player {player} WON THE GAME!!!")
             return
 
 main()
